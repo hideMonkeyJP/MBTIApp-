@@ -8,11 +8,19 @@ interface WelcomeProps {
 function Welcome({ onStart }: WelcomeProps) {
   return (
     <div className="text-center space-y-8 py-12">
-      <h1 className="text-4xl font-bold text-gray-800 mb-6">
-        キャリア最適化MBTI診断
-      </h1>
+      <div className="space-y-4">
+        <div className="relative inline-block">
+          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 text-transparent bg-clip-text animate-gradient-x">
+            キャリア最適化
+          </h1>
+          <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 rounded-full"></div>
+        </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+          MBTI診断
+        </h2>
+      </div>
       
-      <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+      <p className="text-xl text-gray-600 max-w-2xl mx-auto mt-8">
         あなたの性格タイプに基づいて、最適なキャリアパスを発見しましょう
       </p>
 
