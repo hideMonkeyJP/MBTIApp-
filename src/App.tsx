@@ -22,9 +22,9 @@ function App() {
   };
 
   return (
-    <main className="min-h-screen w-full relative">
+    <main className="min-h-screen w-full relative overflow-hidden">
       <div 
-        className="fixed inset-0 bg-no-repeat bg-center pointer-events-none"
+        className="fixed inset-0 bg-no-repeat bg-center pointer-events-none animate-rotate"
         style={{
           backgroundImage: 'url(https://stackblitz.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBM01ER0E9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--7c049c39b536e42ac2b59b5cf6af694a232b84d0/%E9%AD%94%E6%B3%95%E9%99%A3.png)',
           backgroundSize: 'contain',
@@ -35,7 +35,7 @@ function App() {
         aria-hidden="true"
       />
       
-      <div className="relative z-10 max-w-4xl mx-auto px-4 py-8">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 py-8 animate-fade-in">
         {step === 'welcome' && <Welcome onStart={handleStart} />}
         {step === 'questions' && <Questions onComplete={handleComplete} />}
         {step === 'result' && <Result answers={answers} onRestart={handleRestart} />}

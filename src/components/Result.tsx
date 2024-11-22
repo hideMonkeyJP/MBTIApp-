@@ -70,20 +70,20 @@ function Result({ answers, onRestart }: ResultProps) {
   const typeInfo = typeDescriptions[personalityType] || defaultType;
 
   return (
-    <div className="max-w-4xl mx-auto rounded-2xl shadow-lg p-8 backdrop-blur-sm bg-white/10">
+    <div className="max-w-4xl mx-auto rounded-2xl shadow-lg p-8 backdrop-blur-sm bg-white/10 animate-fade-in">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">
+        <h2 className="text-3xl font-bold text-gray-800 mb-4 animate-fade-in">
           あなたのタイプは...
         </h2>
-        <div className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg text-2xl font-bold">
+        <div className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg text-2xl font-bold animate-float">
           {personalityType} - {typeInfo.title}
         </div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 mb-12">
-        <section className="space-y-4">
+        <section className="space-y-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
           <h3 className="text-xl font-semibold flex items-center text-gray-800">
-            <BookOpen className="w-6 h-6 mr-2 text-indigo-600" />
+            <BookOpen className="w-6 h-6 mr-2 text-indigo-600 animate-float" />
             特徴
           </h3>
           <p className="text-gray-600 leading-relaxed">
@@ -91,15 +91,19 @@ function Result({ answers, onRestart }: ResultProps) {
           </p>
         </section>
 
-        <section className="space-y-4">
+        <section className="space-y-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
           <h3 className="text-xl font-semibold flex items-center text-gray-800">
-            <Trophy className="w-6 h-6 mr-2 text-indigo-600" />
+            <Trophy className="w-6 h-6 mr-2 text-indigo-600 animate-float" />
             強み
           </h3>
           <ul className="grid grid-cols-2 gap-2">
             {typeInfo.strengths.map((strength, index) => (
-              <li key={index} className="flex items-center text-gray-600">
-                <span className="w-2 h-2 bg-indigo-600 rounded-full mr-2"></span>
+              <li 
+                key={index} 
+                className="flex items-center text-gray-600 animate-fade-in"
+                style={{ animationDelay: `${0.8 + index * 0.2}s` }}
+              >
+                <span className="w-2 h-2 bg-indigo-600 rounded-full mr-2 animate-pulse"></span>
                 {strength}
               </li>
             ))}
@@ -107,26 +111,30 @@ function Result({ answers, onRestart }: ResultProps) {
         </section>
       </div>
 
-      <section className="mb-12">
+      <section className="mb-12 animate-fade-in" style={{ animationDelay: '1.2s' }}>
         <h3 className="text-xl font-semibold flex items-center text-gray-800 mb-6">
-          <Briefcase className="w-6 h-6 mr-2 text-indigo-600" />
+          <Briefcase className="w-6 h-6 mr-2 text-indigo-600 animate-float" />
           おすすめの職種
         </h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {typeInfo.careers.map((career, index) => (
-            <div key={index} className="backdrop-blur-sm bg-white/10 p-4 rounded-lg text-center">
+            <div 
+              key={index} 
+              className="backdrop-blur-sm bg-white/10 p-4 rounded-lg text-center animate-fade-in hover:scale-105 transition-transform"
+              style={{ animationDelay: `${1.4 + index * 0.2}s` }}
+            >
               <p className="text-gray-700">{career}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <div className="text-center">
+      <div className="text-center animate-fade-in" style={{ animationDelay: '2s' }}>
         <button
           onClick={onRestart}
-          className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+          className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all hover:scale-105"
         >
-          <RefreshCcw className="w-5 h-5 mr-2" />
+          <RefreshCcw className="w-5 h-5 mr-2 animate-rotate" />
           もう一度診断する
         </button>
       </div>

@@ -67,11 +67,11 @@ function Questions({ onComplete }: QuestionsProps) {
   const progress = ((currentQuestion + 1) / questions.length) * 100;
 
   return (
-    <div className="max-w-2xl mx-auto rounded-2xl shadow-lg p-8 backdrop-blur-sm bg-white/10">
+    <div className="max-w-2xl mx-auto rounded-2xl shadow-lg p-8 backdrop-blur-sm bg-white/10 animate-fade-in">
       <div className="mb-8">
-        <div className="h-2 w-full bg-gray-200/30 rounded-full">
+        <div className="h-2 w-full bg-gray-200/30 rounded-full overflow-hidden">
           <div
-            className="h-2 bg-indigo-600 rounded-full transition-all duration-300"
+            className="h-2 bg-indigo-600 rounded-full transition-all duration-700 animate-pulse"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -81,27 +81,28 @@ function Questions({ onComplete }: QuestionsProps) {
       </div>
 
       <div className="space-y-8">
-        <h2 className="text-2xl font-semibold text-gray-800">
+        <h2 className="text-2xl font-semibold text-gray-800 animate-fade-in">
           {questions[currentQuestion].text}
         </h2>
 
         <div className="space-y-4">
-          {questions[currentQuestion].options.map((option) => (
+          {questions[currentQuestion].options.map((option, index) => (
             <button
               key={option.value}
               onClick={() => handleAnswer(option.value)}
-              className="w-full p-4 text-left border-2 border-gray-200/30 rounded-lg hover:border-indigo-600 transition-colors backdrop-blur-sm bg-white/10"
+              className="w-full p-4 text-left border-2 border-gray-200/30 rounded-lg hover:border-indigo-600 transition-all hover:scale-102 backdrop-blur-sm bg-white/10 animate-fade-in"
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
               {option.text}
             </button>
           ))}
         </div>
 
-        <div className="flex justify-between pt-4">
+        <div className="flex justify-between pt-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           <button
             onClick={handlePrevious}
             disabled={currentQuestion === 0}
-            className={`flex items-center ${currentQuestion === 0 ? 'text-gray-400' : 'text-gray-600 hover:text-indigo-600'}`}
+            className={`flex items-center transition-all ${currentQuestion === 0 ? 'text-gray-400' : 'text-gray-600 hover:text-indigo-600 hover:scale-105'}`}
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             前の質問
